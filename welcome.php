@@ -15,7 +15,6 @@ if ($QRY_STR == 'error=2') {
 }
 include('./helper/header.php');
 require_once("./model/mainModel.php");
-
 ?>
     <div id="" class="">
         <?php

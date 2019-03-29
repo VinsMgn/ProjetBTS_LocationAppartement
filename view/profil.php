@@ -1,7 +1,7 @@
 <!--Profil de l'utilisateur-->
 <?php
 $INC_DIR = $_SERVER["DOCUMENT_ROOT"];
-$INC_DIR .= "\ProjetBTS_LocationAppartement-master";
+//$INC_DIR .= "\ProjetBTS_LocationAppartement-master";
 $RQT_URL = $_SERVER['REQUEST_URI'];
 
 require_once("../helper/authGuard.php");

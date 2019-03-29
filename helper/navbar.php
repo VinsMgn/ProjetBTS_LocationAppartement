@@ -14,6 +14,8 @@
                 </div>
             </div>
 
+
+<!--            Ajout d'un solde et pas d'un appartement TODO-->
             <div class="col-md-3">
                 <button type="button" class="btn-info roundedAddBtn">
                     <a href="../controller/insertAppart.php" onclick="$('.addCreateDropdown').toggle();" class="white-text">
@@ -34,7 +36,8 @@
                 </form>
                 <?php
                 if (isset($_POST["deconnexion"])) {
-                    header("Location:./index.php");
+                    $INC_DIR = $_SERVER["DOCUMENT_ROOT"];
+                    header("Location:../index.php");
                     session_destroy();
                 }
                 ?>

@@ -14,6 +14,7 @@ if (isset($_SESSION)) {
 
 $QRY_STR = $_SERVER['QUERY_STRING'];
 
+
 //Traitement si l'utilisateur souhaite se déconnecter
 if ($QRY_STR == 'disconnect') {
     session_destroy();
