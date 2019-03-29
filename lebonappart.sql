@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 16 nov. 2018 à 14:14
+-- Généré le :  ven. 29 mars 2019 à 21:20
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `appartements` (
 
 INSERT INTO `appartements` (`id_appartement`, `prix`, `description`, `etat`, `nbPiece`, `surface`, `meuble`, `ind_energie`, `dateCreation`, `dateExpiration`, `message`, `statut`, `FK_USERS`, `FK_QUARTIERS`, `FK_VILLES`) VALUES
 (8, 200, 'Studio', 'Beau', 1, 12, 0, 'F', '01/01/2018', '31/12/2018', 'Studio pas chère et grand', 0, 1, 4, 75000),
-(9, 120, 'Chalet', 'En bois', 2, 50, 1, 'D', '25/12/2017', '25/01/2018', 'Chalet en bois neuf', 0, 2, 1, 34000);
+(9, 250, 'Appartement T4', 'Neuf', 2, 200, 1, 'C', '05/02/1888', '25/01/2018', 'Vieux château hanté', 1, 2, 1, 34000);
 
 --
 -- Déclencheurs `appartements`
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `historique` (
   KEY `APPARTEMENTS_USERS_FK` (`FK_USERS`),
   KEY `APPARTEMENTS_QUARTIERS0_FK` (`FK_QUARTIERS`),
   KEY `APPARTEMENTS_VILLES1_FK` (`FK_VILLES`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `historique`
@@ -164,7 +164,23 @@ CREATE TABLE IF NOT EXISTS `historique` (
 INSERT INTO `historique` (`id_appartement`, `prix`, `description`, `etat`, `nbPiece`, `surface`, `meuble`, `ind_energie`, `dateCreation`, `dateExpiration`, `message`, `statut`, `FK_USERS`, `FK_QUARTIERS`, `FK_VILLES`) VALUES
 (2, 500, 'appartement T2', 'ancien', 2, 30, 1, '50', '07/01/1999', '09/10/2019', 'Appartement style ancien à louer', 0, 1, 3, 34000),
 (3, 850, 'Appartement T4', 'Rénové', 4, 50, 1, '350', '25/12/2016', '25/12/2018', 'Appartement rénové', 1, 2, 3, 34000),
-(6, 350, 'Studio', 'Neuf', 1, 20, 1, '150', '02/05/2018', '01/01/2019', 'Studio 20m² tout neuf disponible imméditament', 0, 2, 6, 75000);
+(6, 350, 'Studio', 'Neuf', 1, 20, 1, '150', '02/05/2018', '01/01/2019', 'Studio 20m² tout neuf disponible imméditament', 0, 2, 6, 75000),
+(10, 250, 'Appartement T4', 'Neuf', 2, 20, 1, 'C', '05/02/1888', '25/01/2018', 'Vieux château hanté', 0, 9, 4, 75000);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `image`
+--
+
+DROP TABLE IF EXISTS `image`;
+CREATE TABLE IF NOT EXISTS `image` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(255) NOT NULL,
+  `appartement` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_appartement` (`appartement`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -214,19 +230,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `isProprietaire` tinyint(1) NOT NULL,
   `lockedMoney` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `nom`, `prenom`, `adress`, `phone`, `mail`, `pays`, `solde`, `password`, `isAdmin`, `isProprietaire`, `lockedMoney`) VALUES
-(1, 'Martin', 'Gabriel', '25 rue des coquelicots', '0612345678', 'gabriel.martin@epsi.fr', 'France', '500', '1234', 1, 1, 150),
+(1, 'Martin', 'Gabriel', '25 rue des coquelicots', '0612345678', 'gabriel.martin@epsi.fr', 'France', '500', '1234', 1, 1, 300),
 (2, 'Marignier', 'Vincent', 'Montpellier', '0612345678', 'vincent.marignier@epsi.fr', 'France', '150', 'abcd', 0, 0, NULL),
 (3, 'Dupont', 'Jean', '25 rue de Montpellier', '0465885987', 'dupontjean@yahoo.fr', 'France', '0', '1234', 0, 0, NULL),
 (4, 'Durand', 'Anthony', '34 route de nimes', '0612345679', 'a.durand@gmail.com', 'France', '900', '1234', 0, 0, NULL),
 (5, 'Dupont', 'Jacques', 'Montpellier', '0612345670', 'jacques.dupont@epsi.fr', 'Frane', '0', '1234', 0, 0, NULL),
-(6, 'Bertin', 'Manon', 'Montpellier', '0612345675', 'm.bertin@epsi.fr', 'France', '0', '1234', 0, 0, NULL);
+(6, 'Bertin', 'Manon', 'Montpellier', '0612345675', 'm.bertin@epsi.fr', 'France', '0', '1234', 0, 0, NULL),
+(9, 'dupond', 'jean', '14 rue des jonquilles', '061235678', 'j.deu@epsi.fr', 'France', '300', '1234', 0, 0, NULL),
+(10, 'Figue', 'Adrien', 'Montpellier', '0655889966', 'figue.adrien@epsi.fr', 'France', '2000', 'abcd4ABCD', 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -266,6 +284,12 @@ ALTER TABLE `appartements`
 --
 ALTER TABLE `habite`
   ADD CONSTRAINT `habite_USERS0_FK` FOREIGN KEY (`FK_USERS_HABITE`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `image`
+--
+ALTER TABLE `image`
+  ADD CONSTRAINT `fk_appartement` FOREIGN KEY (`appartement`) REFERENCES `appartements` (`id_appartement`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `quartiers`

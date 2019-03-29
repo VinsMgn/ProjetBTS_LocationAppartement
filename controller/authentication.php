@@ -19,7 +19,8 @@ if(isset($_SESSION) && count($_SESSION) > 0 ){
 }
 //Traitement en cas de mauvais mail/mdp
 if($QRY_STR == 'error=1'){
-    echo("Mauvais mot de passe ou mauvais mail ");
+    $falseInfo = "Mauvais mot de passe ou mauvais mail";
+//    echo("Mauvais mot de passe ou mauvais mail ");
 }
 
 

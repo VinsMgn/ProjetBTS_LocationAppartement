@@ -2,69 +2,74 @@
 require_once("../controller/insertUser.php");
 ?>
 
-<h1> Inscription à la plateforme</h1>
-
-<div class="formcontainer">
-
-    <form method="post" action="../controller/insertUser.php">
-      
-        <div class="input-field">
-            <label for="name" class=""> Nom
-                <input required name="name" type="text">
-            </label>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center"> Inscription à la plateforme</h1>
         </div>
-
-        <div class="input-field">
-
-            <label for="firstname" class="">Prénom
-                <input required name="firstname" type="text">
-            </label>
-        </div>
-        <div class="input-field">
-            <label for="adress" class=""> Adresse
-                <input required name="adress" type="text">
-            </label>
-        </div>
-        <div class="input-field">
-            <label for="phone" class=""> Téléphone
-                <input required name="phone" type="text">
-            </label>
-        </div>
-        <div class="input-field">
-            <label for="mail" class=""> Mail
-                <input required name="mail" type="email">
-            </label>
-        </div>
-        <div class="input-field">
-            <label for="country" class=""> Pays
-                <input required name="country" type="text">
-            </label>
-        </div>
-        <div class="input-field">
-            <label for="password" class=""> Mot de passe
-                <input required name="password" type="password">
-            </label>
-        </div>
-        <div class="input-field">
-            <label for="type" class=""> Propriétaire
-                <select required name="type" >
-                    <option> Oui</option>
-                    <option> Non</option>
-                </select>
-            </label>
-        </div>
-        <div class="input-field">
-            <label for="solde" class=""> Solde (0 si aucun)
-                <input required name="solde" type="text">
-            </label>
-        </div>
-        <div class="input-field">
-            <label for="submit" class="">
-                <input required name="submit" type="submit" value="Enregistrer">
-            </label>
-        </div>
-     
-    </form>
-    <button> <a href = "../index.php" style="text-decoration: none; color: black" >Retour</a></button>
+    </div>
 </div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" action="../controller/insertUser.php">
+
+                <label for="name">Nom</label>
+                <input name="name" type="text" class="form-control" aria-describedby="nameHelp"
+                       placeholder="Entrer votre nom"><br>
+
+                <label for="firstname">Prénom</label>
+                <input name="firstname" type="text" class="form-control" aria-describedby="firstnameHelp"
+                       placeholder="Entrer votre prénom"><br>
+
+                <label for="adress">Adresse</label>
+                <input name="adress" type="text" class="form-control" aria-describedby="addressHelp"
+                       placeholder="Entrer votre adresse"><br>
+
+                <label for="phone">Téléphone</label>
+                <input name="phone" type="text" class="form-control" aria-describedby="phoneHelp"
+                       placeholder="Entrer votre numéro de téléphone"><br>
+
+                <label for="mail">Adresse Mail</label>
+                <input name="mail" type="email" class="form-control" aria-describedby="mailHelp"
+                       placeholder="Entrer votre adresse mail"><br>
+
+                <label for="country">Pays</label>
+                <input name="country" type="text" class="form-control" aria-describedby="countryHelp"
+                       placeholder="Entrer votre pays de résidence"><br>
+
+                <label for="password">Mot de passe</label>
+                <input name="password" type="password" class="form-control" aria-describedby="passwordHelp"
+                       placeholder="Entrer votre mot de passe"><br>
+
+
+                <label for="type" class=""> Propriétaire
+                    <select required name="type">
+                        <option> Oui</option>
+                        <option> Non</option>
+                    </select>
+                </label><br>
+
+                <label for="solde">Solde (0 si aucun)</label>
+                <input name="solde" type="text" class="form-control" aria-describedby="soldeHelp"
+                       placeholder="Entrer votre solde">
+
+                <br>
+                <label for="submit" class="">
+                </label>
+                <input required name="submit" type="submit" value="Enregistrer">
+
+            </form>
+        </div>
+        <div class="col-md-5">
+            <a href="../index.php" class="close">
+                <i class="fas fa-arrow-circle-left"></i>
+            </a>
+        </div>
+
+    </div>
+</div>
+
 

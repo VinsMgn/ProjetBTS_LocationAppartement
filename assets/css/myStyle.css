@@ -1,0 +1,101 @@
+body{
+    background-color: #F2F2F2!important;
+    color: black!important;
+}
+
+.logoImg{
+    width: 20em;
+    height: auto;
+    margin-top: 5em;
+}
+
+.textIndex{
+    font-size: 3em;
+    color:#121217;
+}
+
+.roundedIndexBtn{
+    border-radius:15px;
+}
+.title_connection{
+    color: #0070c9;
+}
+
+.formConnection{
+    margin-left: 15em;
+    margin-top: 7em;
+}
+
+/*NAVBAR CSS*/
+.navbar-row {
+    margin-bottom: 0!important;
+    display: flex;
+    align-items: center;
+    max-width: 1280px;
+}
+
+.logo-pic {
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+    margin-left: 16px;
+    background: url("../img/logo.png") no-repeat;
+    background-size: cover;
+    border-radius: 100px;
+    border: none;
+}
+
+.navbar-link-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    /*max-width: 500px;*/
+    /*margin-left: 20em;*/
+}
+
+.roundedAddBtn{
+    border-radius:4px;
+}
+
+.addLogo{
+    width: 2em;
+    height: auto;
+}
+
+/*END NAVBAR CSS*/
+
+.catchPhrase{
+    font-size: 2em;
+}
+
+.linkApparts{
+    font-size: 2em;
+    color: black;
+}
+
+.spaceTopWelcome{
+    margin-top: 10em;
+    margin-bottom: 5em;
+}
+
+.cityForm{
+    z-index:8;
+    display: block;
+}
+
+
+.item {
+    width: 300px;
+    height: 170px;
+    display: inline-block;
+    background-color: white;
+    position: relative;
+    margin: 0 10px 15px 10px;
+    align-self: flex-start;
+    box-sizing: border-box;
+    text-align: center;
+    background-size: cover;
+
+    overflow: hidden;
+}

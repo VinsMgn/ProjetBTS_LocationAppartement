@@ -67,7 +67,7 @@ require('../helper/header.php')
  ?>
 <div id="mainContainer" class="container">
         <?php
-        include("../helper/navbar.html")
+        include("../helper/navbar.php")
         ?>
         <div id="contentContainer">
             <div class="articleBloc plain">

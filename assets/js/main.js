@@ -5,8 +5,6 @@ if(cpInput !== undefined){
         if(e.target.value.length === 5){
             cp = e.target.value;
             getData();
-    
-    
             var quartInput = document.getElementById('quartInput');
             quartInput.className = 'quartInput-pinned';
         }
@@ -15,7 +13,6 @@ if(cpInput !== undefined){
 }
 
 function getData(){
-
     fetch('/controller/jsData.php?quartiers=')
         .then(res => res.json())
         .then(quartier =>{
@@ -31,6 +28,4 @@ function getData(){
                     }
             }
         })
-
-
 }

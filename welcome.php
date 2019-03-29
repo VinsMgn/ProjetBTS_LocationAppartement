@@ -1,7 +1,7 @@
-
 <?php
- $INC_DIR = $_SERVER["DOCUMENT_ROOT"];
- $RQT_URL = $_SERVER['REQUEST_URI'];
+$INC_DIR = $_SERVER["DOCUMENT_ROOT"];
+$INC_DIR .= "\ProjetBTS_LocationAppartement-master";
+$RQT_URL = $_SERVER['REQUEST_URI'];
 
 require_once("./helper/authGuard.php");
 
@@ -17,73 +17,26 @@ include('./helper/header.php');
 require_once("./model/mainModel.php");
 
 ?>
-    <div id="mainContainer" class="container">
+    <div id="" class="">
         <?php
-        include("./helper/navbar.html");
-
+        include("./helper/navbar.php");
         ?>
-
-        <div id="contentContainer" class="scrollable">
-
-            <div class="profileContainer">
-                <div class="user">
-                    <img class="pp" src="/assets/img/yv.png">
-                    <h3 class="ellipsis">
-                        <?php $lobjUser = GetUser($_SESSION['id']);
-                        echo($lobjUser->prenom . " ".$lobjUser->nom); ?>
-                    </h3>
-                </div>
-
-                <div class="itemsWrapper">
-
-                    <div class="userInfos">
-                        <span class="title">Informations</span>
-                        <ul>
-                            <li>
-                                <span class="typeInfo">Nom : </span>
-                                <?php echo($lobjUser->nom); ?>
-                            </li>
-                            <li>
-                                <span class="typeInfo">Prénom : </span>
-                                <?php echo($lobjUser->prenom); ?>
-                            </li>
-                            <li>
-                                <span class="typeInfo">Adresse : </span>
-                                <?php echo($lobjUser->adress); ?>
-                            </li>
-                            <li>
-                                <span class="typeInfo">Mail : </span>
-                                <?php echo($lobjUser->mail); ?>
-                            </li>
-                            <li>
-                                <span class="typeInfo">Pays : </span>
-                                <?php echo($lobjUser->pays); ?>
-                            </li>
-                            <li>
-                                <span class="typeInfo">Solde : </span>
-                                <?php echo($lobjUser->solde); ?>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="userAds">
-                        <a href="./controller/listOfAppartsUser.php">Mon logement
-                    </div>
-
-
-                </div>
-
-                <a href="./controller/insertAppart.php" class="btn submit waves-effect waves-light">Ajouter un logement
-                    <i class="material-icons right">add_circle</i>
-                </a>
-
-                <!--                </button>-->
-            </div>
-
-        </div>
-
-
     </div>
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center spaceTopWelcome">
+                <h1>Bienvenue sur Le bon'appart </h1>
+                <span class="catchPhrase"> La plateforme de location d'appartement entre particuliers</span>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="./controller/listOfApparts.php" style="text-decoration: none"> <span class="linkApparts">Voir les appartements disponibles ></span></a>
+            </div>
+        </div>
+    </div>
 <?php
 include("./helper/footer.php");
 ?>
