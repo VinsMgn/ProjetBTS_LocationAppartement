@@ -5,7 +5,7 @@
         <div class="row navbar-row">
 
             <div class="col-md-2">
-                <div class="logo-pic"></div>
+                <a href="../welcome.php"><div class="logo-pic"></div></a>
             </div>
 
             <div class="col-md-3">
@@ -23,7 +23,7 @@
 
 
             <div class="col-md-2">
-                <a href="../welcome.php">
+                <a href="../view/profil.php">
                     <div class=""> Profil</div>
                 </a>
             </div>
