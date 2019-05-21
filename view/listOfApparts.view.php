@@ -6,11 +6,6 @@ include("../helper/header.php");
 <?php
 $lobjApparts = GetApparts();
 
-//for($i = 0;$i < sizeof($lobjApparts);$i++){
-//    $lobjPicture = GetPictureFromHouse($lobjApparts[$i]->id_appartement);
-//
-//}
-
 include("../helper/navbar.php");
 ?>
     <div id="" class="container-fluid">

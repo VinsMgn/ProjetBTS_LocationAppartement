@@ -4,7 +4,7 @@ require_once("../model/mainModel.php");
 require_once("../helper/authGuard.php");
 $RQT_URL = $_SERVER['REQUEST_URI'];
 session_start();
-AuthGuard($RQT_URL);
+//AuthGuard($RQT_URL);
 //Obtention de l'utilisateur
 $lintIdUser = $_SESSION['id'];
 $lobjUser = GetUser($lintIdUser);

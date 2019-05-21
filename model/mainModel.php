@@ -160,7 +160,7 @@ VALUES ( :pNom, :pPrneom, :pAdress, :pPhone, :pMail, :pPays, :pSolde, :pPassword
 }
 
 //Modification d'un utilisateur
-function UpdateUser($name, $firstname, $address, $phone, $mail, $pays, $solde, $password, $type, $id)
+function UpdateUser($name, $firstname, $address, $phone, $mail, $pays, $solde, $password, $proprio, $id)
 {
     $lboolOk = false;
 
@@ -168,7 +168,8 @@ function UpdateUser($name, $firstname, $address, $phone, $mail, $pays, $solde, $
     $bdd = GetDataBase();
 
     if ($bdd) {
-        $lstrQuery = "UPDATE users SET nom=:pName, prenom=:pFirstname, adress=:pAddress, phone = :pPhone, mail = :pMail, pays = :pPays, solde = :pSolde, isAdmin = :pIsAdmin password = :pPassword, type = :pType WHERE id = :pId";
+        $lstrQuery = "UPDATE users SET nom=:pName, prenom=:pFirstname, adress=:pAddress, phone = :pPhone, mail = :pMail, pays = :pPays,
+                        solde = :pSolde, isAdmin = :pIsAdmin, password = :pPassword, isProprietaire = :pProprio WHERE id = :pId";
         $stmt = $bdd->prepare($lstrQuery);
         $stmt->bindParam(':pName', $name);
         $stmt->bindParam(':pFirstname', $firstname);
@@ -177,10 +178,10 @@ function UpdateUser($name, $firstname, $address, $phone, $mail, $pays, $solde, $
         $stmt->bindParam(':pMail', $mail);
         $stmt->bindParam(':pPays', $pays);
         $stmt->bindParam(':pSolde', $solde);
-        $stmt->bindParam(':pPassword', $password);
-        $stmt->bindParam(':pType', $type);
-        $stmt->bindParam(':pId', $id);
         $stmt->bindParam(':pIsAdmin', $isAdmin);
+        $stmt->bindParam(':pPassword', $password);
+        $stmt->bindParam(':pProprio', $proprio);
+        $stmt->bindParam(':pId', $id);
 
         $stmt->execute();
 
