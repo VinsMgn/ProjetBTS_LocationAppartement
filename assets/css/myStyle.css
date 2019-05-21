@@ -84,6 +84,21 @@ body{
     display: block;
 }
 
+.profilPicture{
+    width:10em;
+    height: auto;
+    margin-top: 5em;
+}
+
+.logementInfo{
+    margin-bottom: 5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonListUser{
+    margin-left: 15em;
+}
 
 .item {
     width: 300px;
@@ -96,6 +111,14 @@ body{
     box-sizing: border-box;
     text-align: center;
     background-size: cover;
-
     overflow: hidden;
+}
+
+.detailAppartement{
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+#listProfil h3{
+    font-size: 2em;
 }

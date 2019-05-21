@@ -4,6 +4,13 @@ include("../helper/header.php");
 
 
 <?php
+$lobjApparts = GetApparts();
+
+//for($i = 0;$i < sizeof($lobjApparts);$i++){
+//    $lobjPicture = GetPictureFromHouse($lobjApparts[$i]->id_appartement);
+//
+//}
+
 include("../helper/navbar.php");
 ?>
     <div id="" class="container-fluid">
@@ -13,6 +20,7 @@ include("../helper/navbar.php");
             </div>
         </div>
     </div>
+<!--Barre de recherche -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 center-block">
@@ -21,6 +29,7 @@ include("../helper/navbar.php");
                         <label id="searchCity">Ville :</label>
                         <select name="city" class="cityForm">
                             <?php foreach ($lobjVilles as $ville) { ?>
+
                                 <option value="<?php echo($ville->cpVille); ?>"
                                         style=" z-index:8; display: block; color:black;"> <?php echo($ville->nomVille); ?></option>
                             <?php } ?>
@@ -35,15 +44,19 @@ include("../helper/navbar.php");
             </div>
         </div>
     </div>
-
+<!-- Affichage des appartements-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-10" >
                 <?php foreach ($lobjApparts as $appart) {
+                    $lobjPicture = GetPictureFromHouse($appart->id_appartement);
                     ?>
-                    <div class="item col-md-5" >
+
+                    <div class="item col-md-5">
                         <div class="title">
+
                             <?php
+
                             echo($appart->message);
                             ?>
 

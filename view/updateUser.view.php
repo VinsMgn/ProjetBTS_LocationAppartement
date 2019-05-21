@@ -1,5 +1,8 @@
 <?php
 
+include_once("../helper/header.php");
+include("../helper/navbar.php");
+
 if ($lobjUser) {
     ?>
     <!-- Formulaire HTML pour modifier les données-->
@@ -16,10 +19,10 @@ if ($lobjUser) {
             </div>
 
             <div class="input-field">
-
-                <label for="firstname" class="">Prénom
-                    <input required name="firstname" type="text" value="<?php echo($lobjUser->prenom);?>">
-                </label>
+                Prénom
+                <input required name="firstname" type="text" value="<?php echo($lobjUser->prenom);?>">
+<!--                <label for="firstname" class="">Prénom-->
+<!--                </label>-->
             </div>
             <div class="input-field">
                 <label for="adress" class=""> Adresse

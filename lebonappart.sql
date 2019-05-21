@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 29 mars 2019 à 21:20
+-- Généré le :  ven. 05 avr. 2019 à 12:30
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -64,15 +64,16 @@ CREATE TABLE IF NOT EXISTS `appartements` (
   KEY `APPARTEMENTS_USERS_FK` (`FK_USERS`),
   KEY `APPARTEMENTS_QUARTIERS0_FK` (`FK_QUARTIERS`),
   KEY `APPARTEMENTS_VILLES1_FK` (`FK_VILLES`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `appartements`
 --
 
 INSERT INTO `appartements` (`id_appartement`, `prix`, `description`, `etat`, `nbPiece`, `surface`, `meuble`, `ind_energie`, `dateCreation`, `dateExpiration`, `message`, `statut`, `FK_USERS`, `FK_QUARTIERS`, `FK_VILLES`) VALUES
-(8, 200, 'Studio', 'Beau', 1, 12, 0, 'F', '01/01/2018', '31/12/2018', 'Studio pas chère et grand', 0, 1, 4, 75000),
-(9, 250, 'Appartement T4', 'Neuf', 2, 200, 1, 'C', '05/02/1888', '25/01/2018', 'Vieux château hanté', 1, 2, 1, 34000);
+(8, 200, 'Studio', 'Neuf', 1, 12, 0, 'F', '01/01/2018', '31/12/2018', 'Studio pas chère et grand pour étudiant souhaitant aller sur Paris.', 0, 1, 4, 75000),
+(9, 250, 'Appartement T4', 'Neuf', 4, 200, 1, 'C', '05/02/1888', '25/01/2018', 'Bel appartement rénové, 4 pièces. Idéal pour un couple avec enfant.', 1, 2, 1, 34000),
+(10, 1500, 'Petite maison de plein pied', 'Ancien', 5, 80, 1, 'b', '05/01/2016', '07/01/2016', '', 1, 3, 5, 75000);
 
 --
 -- Déclencheurs `appartements`
@@ -118,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `habite` (
   `dateVente` varchar(180) NOT NULL,
   PRIMARY KEY (`idApparthabite`) USING BTREE,
   KEY `habite_USERS0_FK` (`FK_USERS_HABITE`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `habite`
@@ -126,7 +127,8 @@ CREATE TABLE IF NOT EXISTS `habite` (
 
 INSERT INTO `habite` (`idApparthabite`, `FK_USERS_HABITE`, `dateVente`) VALUES
 (1, 1, '01/01/2018'),
-(4, 2, '25/12/2017');
+(4, 2, '25/12/2017'),
+(5, 3, '05/01/2016');
 
 -- --------------------------------------------------------
 
@@ -178,9 +180,19 @@ CREATE TABLE IF NOT EXISTS `image` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(255) NOT NULL,
   `appartement` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_appartement` (`appartement`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `fk_appartement` (`appartement`),
+  KEY `fk_user` (`user`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `image`
+--
+
+INSERT INTO `image` (`id`, `url`, `appartement`, `user`) VALUES
+(3, 'assets\\img\\f15ca21da5e7dc3.jpg', 8, 1),
+(5, 'assets\\img\\f15ca21da5e7dc3.jpg', 9, 2);
 
 -- --------------------------------------------------------
 
@@ -289,7 +301,8 @@ ALTER TABLE `habite`
 -- Contraintes pour la table `image`
 --
 ALTER TABLE `image`
-  ADD CONSTRAINT `fk_appartement` FOREIGN KEY (`appartement`) REFERENCES `appartements` (`id_appartement`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_appartement` FOREIGN KEY (`appartement`) REFERENCES `appartements` (`id_appartement`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `quartiers`

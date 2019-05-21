@@ -11,11 +11,12 @@ session_start();
 $lobjUser = GetUser($_SESSION['id']);
 $lobjAppart = GetAppartByUser($lobjUser->id);
 
-
 if (isset($_POST) && count($_POST)){
 
     //Remplir les paramètres avec la view
-    $lboolOk = UpdateAppart($_SESSION['id'], $_POST['prix'], $_POST['description'], $_POST['etat'], $_POST['nbPiece'], $_POST['surface'],$_POST['meuble'], $_POST['ind_energie'], $_POST['creation'], $_POST['expiration'], $_POST['message'], $_POST['statut']);
+    $lboolOk = UpdateAppart($lobjAppart->id_appartement, $_POST['prix'], $_POST['description'], $_POST['etat'], $_POST['nbPiece'], $_POST['surface'],$_POST['meuble'], $_POST['ind_energie'], $_POST['creation'], $_POST['expiration'], $_POST['message'], $_POST['statut']);
+
+    var_dump($lboolOk);
 
     if($lboolOk == true){
         echo("La modification est effectuée");

@@ -13,7 +13,8 @@ function GetDataBase()
     $password = "";
 
     try {
-        $bdd = new PDO('mysql:host=' . $host . ';dbname=' . $dbName . ';charset=utf8', $login, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO('mysql:host=' . $host . ';dbname=' . $dbName . ';charset=utf8',
+            $login, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     } catch (Exception $e) {
         $bdd = null;
         die('Erreur : ' . $e->getMessage());
@@ -93,11 +94,6 @@ function GetQuartierByCity($cp)
 
     return $lobjQuart;
 }
-//TODO
-function GetVilles()
-{
-
-}
 
 function GetQuartiers()
 {
@@ -143,7 +139,8 @@ function InsertUser($name, $firstname, $address, $phone, $mail, $pays, $solde, $
 
     if ($bdd) {
         //Connexion ok, préparation de la requête
-        $lstrQuery = "INSERT INTO users ( nom, prenom, adress, phone, mail, pays, solde, password, isProprietaire, isAdmin) VALUES ( :pNom, :pPrneom, :pAdress, :pPhone, :pMail, :pPays, :pSolde, :pPassword, :pType, :pIsAdmin)";
+        $lstrQuery = "INSERT INTO users ( nom, prenom, adress, phone, mail, pays, solde, password, isProprietaire, isAdmin) 
+VALUES ( :pNom, :pPrneom, :pAdress, :pPhone, :pMail, :pPays, :pSolde, :pPassword, :pType, :pIsAdmin)";
         $stmt = $bdd->prepare($lstrQuery);
         $stmt->bindParam(':pNom', $name);
         $stmt->bindParam(':pPrneom', $firstname);
@@ -319,7 +316,9 @@ function UpdateAppart($id, $prix, $description, $etat, $nbPiece, $surface, $meub
     $bdd = GetDataBase();
 
     if ($bdd) {
-        $lstrQuery = "UPDATE appartements SET prix = :pPrix, description = :pDescription, etat = :pEtat, nbPiece = :pNbPiece, surface = :pSurface, meuble = :pMeuble, ind_energie = :pIndEnergy, dateCreation = :pCreation, dateExpiration = :pExpiration, message = :pMessage, statut =:pStatut WHERE id_appartement = :pId";
+        $lstrQuery = "UPDATE appartements SET prix = :pPrix, description = :pDescription, etat = :pEtat, nbPiece = :pNbPiece, 
+surface = :pSurface, meuble = :pMeuble, ind_energie = :pIndEnergy, dateCreation = :pCreation, dateExpiration = :pExpiration, 
+message = :pMessage, statut =:pStatut WHERE id_appartement = :pId";
         $stmt = $bdd->prepare($lstrQuery);
         $stmt->bindParam(':pPrix', $prix);
         $stmt->bindParam(':pDescription', $description);
@@ -333,6 +332,7 @@ function UpdateAppart($id, $prix, $description, $etat, $nbPiece, $surface, $meub
         $stmt->bindParam(':pMessage', $message);
         $stmt->bindParam(':pStatut', $statut);
         $stmt->bindParam(':pId', $id);
+
         $stmt->execute();
 
         $lboolOk = true;
@@ -494,4 +494,62 @@ function LockedMoney($idUser, $montant){
         $lboolOk = true;
     }
     return $lboolOk;
+}
+
+//Récupération du contenu de la table image selon un appartement
+function GetPictureFromHouse($idHouse){
+    $lobjPicture = null;
+    $bdd = GetDataBase();
+
+    if($bdd){
+        $lstQuery = "SELECT * FROM image WHERE image.appartement = :pidHouse";
+        $stmt = $bdd->prepare($lstQuery);
+        $stmt->bindParam(':pidHouse',$idHouse);
+        $stmt->execute();
+        $lobjPicture = $stmt->fetch(PDO::FETCH_OBJ);
+    }
+    return $lobjPicture;
+
+}
+
+//obtention de l'id max d'une image
+function getMaxIdPicture($id){
+    $bdd = GetDataBase();
+
+    if($bdd){
+        $query = "SELECT MAX(id) AS max  FROM image WHERE id = :pId";
+        $stmt = $bdd->prepare($query);
+        $stmt->bindParam(":pId", $id);
+        $stmt->execute();
+        $donnees = $stmt->fetch();
+        if ($donnees) {
+            $newId = intval($donnees["max"]) +1;
+        }
+        else {
+            $newId = 1;
+        }
+    }
+    return $newId;
+
+}
+
+//Insertion d'une image dans la base
+function InsertPicture($path, $house, $user){
+    $bdd = GetDataBase();
+    if($bdd){
+        try{
+            $query = "INSERT INTO image(url, appartement, user) VALUES(:pPath, :pHouse, :pUser)";
+            $stmt = $bdd->prepare ($query);
+            $stmt->bindParam(':pPath', $path);
+            $stmt->bindParam(':pHouse', $house);
+            $stmt->bindParam(':pUser', $user);
+            $resultat = $stmt->execute();
+        }
+        catch (Exception $e) {
+            $resultat = 0;
+        }
+    }else{
+        $resultat = -4;
+    }
+    return $resultat;
 }

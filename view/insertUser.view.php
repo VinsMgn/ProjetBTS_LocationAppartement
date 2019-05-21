@@ -45,21 +45,29 @@ require_once("../controller/insertUser.php");
                        placeholder="Entrer votre mot de passe"><br>
 
 
-                <label for="type" class=""> Propriétaire
-                    <select required name="type">
-                        <option> Oui</option>
-                        <option> Non</option>
-                    </select>
-                </label><br>
+
 
                 <label for="solde">Solde (0 si aucun)</label>
                 <input name="solde" type="text" class="form-control" aria-describedby="soldeHelp"
                        placeholder="Entrer votre solde">
 
                 <br>
+
+                <label for="type">Êtes-vous propriétaire ? </label>
+                <input name="type" type="text" class="form-control" aria-describedby="typeHelp"
+                       placeholder="Entrez oui si vous êtes propriétaire, sinon non">
+
+                <br>
+
+<!--                <label for="type" class=""> Propriétaire</label>-->
+<!--                <select required name="type">-->
+<!--                    <option> Oui</option>-->
+<!--                    <option> Non</option>-->
+<!--                </select><br>-->
+
                 <label for="submit" class="">
                 </label>
-                <input required name="submit" type="submit" value="Enregistrer">
+                <input required name="submit" type="submit" value="S'inscrire">
 
             </form>
         </div>

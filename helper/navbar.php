@@ -32,7 +32,7 @@
 
             <div class="col-md-2">
                 <form action="" method="post">
-                    <button type="submit" id="deconnexion" name="deconnexion" class="deconnection"> Déconnexion</button>
+                    <button type="submit" id="deconnexion" name="deconnexion" class="btn submit waves-effect waves-light deconnection"> Déconnexion</button>
                 </form>
                 <?php
                 if (isset($_POST["deconnexion"])) {
