@@ -1,6 +1,5 @@
 <?php
 
-//require_once("/../controller/detailAppart.php");
 
 require('../helper/header.php')
  ?>
@@ -77,7 +76,7 @@ require('../helper/header.php')
                         </div>
                         <div class="info">
                             <span class="typeInfo">
-                                <a href="../controller/detailProprietaire.php?id=<?php echo($lobjAppart->FK_USERS) ?>">Ce logement m'intéresse</a>
+                                <a href="../controller/detailProprietaire.php?idUser=<?php echo($lobjAppart->FK_USERS) ?>">Ce logement m'intéresse</a>
                             </span>
 
                         </div>

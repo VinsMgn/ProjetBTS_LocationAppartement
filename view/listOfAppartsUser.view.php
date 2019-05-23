@@ -2,6 +2,8 @@
 require_once("../controller/listOfAppartsUser.php");
 include_once("../helper/header.php");
 include("../helper/navbar.php");
+//Pour ne pas afficher l'erreur car le client n'a pas toujours de photo du logement
+//error_reporting(0);
 
 ?>
     <div class="container-fluid" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
@@ -11,25 +13,32 @@ include("../helper/navbar.php");
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <button class="btn submit waves-effect waves-light">
                     <a href="../welcome.php" style="text-decoration: none; color: white"> Voir mon profil </a>
                 </button>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <button class="btn submit waves-effect waves-light">
-                    <a href="../controller/insertAppart.php" id="ajoutLogement" style="text-decoration: none; color: white">Ajouter un nouveau logement</a>
+                    <a href="../controller/insertAppart.php" id="ajoutLogement"
+                       style="text-decoration: none; color: white">Ajouter un nouveau logement</a>
                 </button>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
+                <button class="btn submit waves-effect waves-light">
+                    <a href="../controller/formImage.php" style="text-decoration: none; color: white">Ajouter une photo</a>
+                </button>
+            </div>
+            <div class="col-md-2">
                 <button class="btn submit waves-effect waves-light">
                     <a href="../controller/updateAppart.php" style="text-decoration: none; color: white">Modifier
                         les
                         informations de mon logement</a></button>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <button class="btn submit waves-effect waves-light">
-                    <a href="../controller/deleteAppart.php" style="text-decoration: none; color: white">Supprimer mon logement</a>
+                    <a href="../controller/deleteAppart.php" style="text-decoration: none; color: white">Supprimer mon
+                        logement</a>
                 </button>
             </div>
         </div>
@@ -40,12 +49,20 @@ include("../helper/navbar.php");
 foreach ($lobjApparts as $lobjAppart) {
     if ($lobjAppart->FK_USERS == $_SESSION['id']) {
         $lobjPicture = GetPictureFromHouse($lobjAppart->id_appartement);
+
         ?>
 
         <div class="container" id="mainContainer">
             <div class="row ">
                 <h3 class="col-md-12">Photo</h3>
-                <img src="<?= ".." . DIRECTORY_SEPARATOR . $lobjPicture->url ?>" alt="Image du logement">
+                <img alt="<?php if ($lobjPicture != null) {
+                    echo("Image du logement");
+                } else {
+                    echo('Veuillez ajouter une image de votre logement');
+                } ?>"
+                     src="<?php if ($lobjPicture != null) {
+                         echo(".." . DIRECTORY_SEPARATOR . $lobjPicture->url);
+                     } ?>">
             </div>
             <div class="row">
                 <div class="col-md-2 text-center">

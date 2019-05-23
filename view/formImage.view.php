@@ -12,6 +12,8 @@ include("../helper/navbar.php");
                 <input type="hidden" name="idPersonne" id="" value="<?php echo $_SESSION["id"];?>" />
                 <input type="submit" value="Ajouter" class="btn btn-default" />
             </form>
+
+            <button class="btn submit waves-effect waves-light"> <a href="../view/profil.php" style="text-decoration: none; color: white;"> Retour</a></button>
         </div>
     </div>
 </div>

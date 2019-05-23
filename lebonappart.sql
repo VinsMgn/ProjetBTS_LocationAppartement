@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 05 avr. 2019 à 12:30
+-- Généré le :  mer. 22 mai 2019 à 08:18
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `appartements` (
 
 INSERT INTO `appartements` (`id_appartement`, `prix`, `description`, `etat`, `nbPiece`, `surface`, `meuble`, `ind_energie`, `dateCreation`, `dateExpiration`, `message`, `statut`, `FK_USERS`, `FK_QUARTIERS`, `FK_VILLES`) VALUES
 (8, 200, 'Studio', 'Neuf', 1, 12, 0, 'F', '01/01/2018', '31/12/2018', 'Studio pas chère et grand pour étudiant souhaitant aller sur Paris.', 0, 1, 4, 75000),
-(9, 250, 'Appartement T4', 'Neuf', 4, 200, 1, 'C', '05/02/1888', '25/01/2018', 'Bel appartement rénové, 4 pièces. Idéal pour un couple avec enfant.', 1, 2, 1, 34000),
+(9, 300, 'Appartement T4', 'Neuf', 4, 200, 1, 'C', '05/02/1888', '25/01/2018', 'Bel appartement rénové, 4 pièces. Idéal pour un couple avec enfant.', 1, 2, 1, 34000),
 (10, 1500, 'Petite maison de plein pied', 'Ancien', 5, 80, 1, 'b', '05/01/2016', '07/01/2016', '', 1, 3, 5, 75000);
 
 --
@@ -238,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `pays` varchar(50) NOT NULL,
   `solde` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `isAdmin` tinyint(1) NOT NULL,
+  `isAdmin` tinyint(1) DEFAULT NULL,
   `isProprietaire` tinyint(1) NOT NULL,
   `lockedMoney` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -250,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `nom`, `prenom`, `adress`, `phone`, `mail`, `pays`, `solde`, `password`, `isAdmin`, `isProprietaire`, `lockedMoney`) VALUES
 (1, 'Martin', 'Gabriel', '25 rue des coquelicots', '0612345678', 'gabriel.martin@epsi.fr', 'France', '500', '1234', 1, 1, 300),
-(2, 'Marignier', 'Vincent', 'Montpellier', '0612345678', 'vincent.marignier@epsi.fr', 'France', '150', 'abcd', 0, 0, NULL),
+(2, 'Marignier', 'Vincent', 'Montpellier', '0612345675', 'vincent.marignier@epsi.fr', 'France', '150', 'abcd', NULL, 0, NULL),
 (3, 'Dupont', 'Jean', '25 rue de Montpellier', '0465885987', 'dupontjean@yahoo.fr', 'France', '0', '1234', 0, 0, NULL),
 (4, 'Durand', 'Anthony', '34 route de nimes', '0612345679', 'a.durand@gmail.com', 'France', '900', '1234', 0, 0, NULL),
 (5, 'Dupont', 'Jacques', 'Montpellier', '0612345670', 'jacques.dupont@epsi.fr', 'Frane', '0', '1234', 0, 0, NULL),

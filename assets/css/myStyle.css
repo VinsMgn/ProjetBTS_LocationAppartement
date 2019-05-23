@@ -122,3 +122,11 @@ body{
 #listProfil h3{
     font-size: 2em;
 }
+
+#informationProprietaire h6{
+    font-weight: bold;
+    font-size: 1.8em;
+}
+#informationProprietaire span{
+    font-size: 1.2em;
+}

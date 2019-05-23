@@ -15,11 +15,9 @@
     <!--BOOTSTRAP-->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 
-    <!-- JQUERY -->
-    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+
 
     <!-- MATERIALIZE -->
-    <!-- <script src="../assets/js/materialize.min.js"></script> -->
     <link rel="stylesheet" href="../assets/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 

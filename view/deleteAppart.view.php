@@ -80,18 +80,18 @@ if ($lobjAppart) {
                         <!--                <label for="message" class=""> Message supplémentaire-->
                         <!--                </label>-->
                     </div>
+<!--                    <div class="input-field">-->
+<!--                        <h5>Statut</h5>-->
+<!---->
+<!--                        <span><select name="statut">-->
+<!--                            <option value="occupe">Occupé</option>-->
+<!--                            <option value="disponible">Disponible</option>-->
+<!--                        </select></span>-->
+<!--                                               <label for="expiration" class=""> Statut-->
+<!--                                              </label>-->
+<!--                    </div>-->
                     <div class="input-field">
-                        <h5>Statut</h5>
-
-                        <label for="expiration" class=""> Statut
-                            <select name="statut">
-                                <option value="occupe">Occupé</option>
-                                <option value="disponible">Disponible</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div class="input-field">
-                        <input required name="submit" type="submit" value="Supprimer mes données"
+                        <input required name="submit" type="submit" value="Supprimer mon appartement"
                                class="btn submit waves-effect waves-light">
                         <!--                <label for="submit" class="">-->
                         <!--                </label>-->

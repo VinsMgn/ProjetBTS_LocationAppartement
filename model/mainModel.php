@@ -462,8 +462,8 @@ function AddMoney($idUser, $montant){
     return $lboolOk;
 }
 
-//Retrait du solde pour un utilisateur
-function RemoveMoney($idUser, $montant){
+//Changement du solde pour un utilisateur
+function ChangeSolde($idUser, $montant){
     $lboolOk = false;
 
     $bdd = GetDataBase();

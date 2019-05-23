@@ -80,7 +80,7 @@ include("../helper/navbar.php");
 
                                 ?>
                             </div>
-                            <a href="../controller/detailAppart.php?id=<?php echo($appart->id_appartement) ?>">
+                            <a href="../controller/detailAppart.php?idAppartement=<?php echo($appart->id_appartement) ?>">
                                 Voir plus
                             </a>
                         </div>

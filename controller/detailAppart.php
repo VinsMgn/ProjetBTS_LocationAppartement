@@ -7,7 +7,7 @@ session_start();
 AuthGuard($RQT_URL);
 
 if(isset($_GET) && count($_GET)>0) {
-    $idAppart = $_GET['id'];
+    $idAppart = $_GET['idAppartement'];
     $lobjAppart = GetAppart($idAppart);
     $lobjUser = GetUser($lobjAppart->FK_USERS);
     $lobjCity = GetCity($lobjAppart->FK_VILLES);
