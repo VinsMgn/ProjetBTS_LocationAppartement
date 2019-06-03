@@ -38,7 +38,7 @@ if (isset($_POST) && count($_POST) > 0){
     $lboolOk = AddAppart( $_POST['prix'], $_POST['description'], $_POST['etat'], $_POST['nbPiece'], $_POST['surface'], $_POST['meuble'], $_POST['indEnergie'], $_POST['creation'], $_POST['expiration'], $_POST['message'], $_POST['statut'], $_SESSION['id'],$quartier->id_quartier , $_POST['town']);
 
     if ($lboolOk == true){
-        header('Location: ../view/profil.php');
+        header('Location: ../view/profil.view.php');
     }else{
         header('Location: insertAppart.php');
         echo("L'ajout n'a pas fonctionné");

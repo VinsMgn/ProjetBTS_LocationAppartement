@@ -14,7 +14,7 @@ $lobjAppart = GetAppartByUser($_SESSION['id']);
 if (isset($_POST) && count($_POST)){
     //Envoi du formulaire OK, on supprime l'appartement
     $lboolOK = DeleteAppart($lobjAppart->id_appartement);
-    header('Location:../view/profil.php');
+    header('Location:../view/profil.view.php');
 }
 
 require_once ("../view/deleteAppart.view.php");

@@ -13,7 +13,7 @@ include("../helper/navbar.php");
                 <input type="submit" value="Ajouter" class="btn btn-default" />
             </form>
 
-            <button class="btn submit waves-effect waves-light"> <a href="../view/profil.php" style="text-decoration: none; color: white;"> Retour</a></button>
+            <button class="btn submit waves-effect waves-light"> <a href="profil.view.php" style="text-decoration: none; color: white;"> Retour</a></button>
         </div>
     </div>
 </div>

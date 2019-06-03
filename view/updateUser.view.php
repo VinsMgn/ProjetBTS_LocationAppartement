@@ -86,6 +86,6 @@ if ($lobjUser) {
             </div>
         </div>
 <!--        <button> <a href = "../controller/admin/listOfUsers.php" style="text-decoration: none; color: black" >Retour</a></button>-->
-        <button class="btn submit waves-effect waves-light"> <a href = "../view/profil.php" style="text-decoration: none; color: white" >Retour</a></button>
+        <button class="btn submit waves-effect waves-light"> <a href = "profil.view.php" style="text-decoration: none; color: white" >Retour</a></button>
     </div>
 <?php }

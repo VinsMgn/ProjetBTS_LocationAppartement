@@ -8,7 +8,7 @@ if(isset($_POST) && count($_POST)>0){
     $lboolOk = AddMoney($_SESSION['id'], $_POST['token']);
 
     if($lboolOk == true){
-        header('Location:../view/profil.php');
+        header('Location:../view/profil.view.php');
     }
 }
 require_once ('../view/insertMoney.view.php');

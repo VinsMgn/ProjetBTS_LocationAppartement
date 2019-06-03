@@ -25,7 +25,7 @@
 
 
             <div class="col-md-2">
-                <a href="../view/profil.php">
+                <a href="../controller/profil.php">
                     <div class=""> Profil</div>
                 </a>
             </div>

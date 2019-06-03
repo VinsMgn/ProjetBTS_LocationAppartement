@@ -1,24 +1,7 @@
 <!--Profil de l'utilisateur-->
 <?php
-$INC_DIR = $_SERVER["DOCUMENT_ROOT"];
-$RQT_URL = $_SERVER['REQUEST_URI'];
-
-require_once("../helper/authGuard.php");
-
-session_start();
-AuthGuard($RQT_URL);
-
-$QRY_STR = $_SERVER['QUERY_STRING'];
-
-if ($QRY_STR == 'error=2') {
-    echo("Vous n'êtes pas administrateur ! ");
-}
 include('../helper/header.php');
-require_once("../model/mainModel.php");
 
-?>
-
-<?php
 include("../helper/navbar.php");
 
 ?>
@@ -28,7 +11,7 @@ include("../helper/navbar.php");
         <div class="col-md-12 ">
             <img class="profilPicture responsive-img rounded center-block" src="/assets/img/profile-pic.PNG" alt="">
             <h2 class="text-center">
-                <?php $lobjUser = GetUser($_SESSION['id']);
+                <?php
                 echo($lobjUser->prenom . " " . $lobjUser->nom); ?>
             </h2>
         </div>
@@ -65,10 +48,16 @@ include("../helper/navbar.php");
 
     </div>
 
-
+<!--Voir le logement en cours-->
     <div class="col-md-4 logementInfo">
         <h3><a href="../controller/listOfAppartsUser.php">Voir mon logement</h3>
     </div>
+<!--    Voir l'historique des logements s'il y en a un-->
+    <div class="col-md-4 logementInfo">
+        <h3><a href="../controller/historique.php">Voir mon historique</h3>
+    </div>
+
+
     <div class="row">
         <div class="col-md-4">
             <a href="../controller/insertAppart.php" class="btn submit waves-effect waves-light">Ajouter un logement

@@ -4,7 +4,6 @@ include("../helper/header.php");
 
 
 <?php
-$lobjApparts = GetApparts();
 
 include("../helper/navbar.php");
 ?>

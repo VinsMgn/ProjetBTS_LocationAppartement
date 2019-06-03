@@ -11,6 +11,10 @@ function GetDataBase()
     $dbName = "lebonappart";
     $login = "root";
     $password = "";
+//    $host = "db5000083741.hosting-data.io";
+//    $dbName = "dbs78527";
+//    $login = "dbu270917";
+//    $password = "ManonV0212!";
 
     try {
         $bdd = new PDO('mysql:host=' . $host . ';dbname=' . $dbName . ';charset=utf8',
@@ -52,7 +56,7 @@ function GetCity($cp)
 
     if ($bdd) {
         //Connexion ok, préparation de la requête
-        $lstrQuery = "SELECT * FROM VILLES WHERE cpVille = :pCp ";
+        $lstrQuery = "SELECT * FROM villes WHERE cpVille = :pCp ";
         $stmt = $bdd->prepare($lstrQuery);
         $stmt->bindParam(':pCp', $cp);
         $stmt->execute();
@@ -69,7 +73,7 @@ function GetCities()
 
     if ($bdd) {
         //Connexion ok, préparation de la requête
-        $lstrQuery = "SELECT * FROM VILLES";
+        $lstrQuery = "SELECT * FROM villes";
         $stmt = $bdd->prepare($lstrQuery);
         $stmt->execute();
         $lobjCity = $stmt->fetchAll(PDO::FETCH_OBJ);;
@@ -85,7 +89,7 @@ function GetQuartierByCity($cp)
 
     if ($bdd) {
         //Connexion ok, préparation de la requête
-        $lstrQuery = "SELECT * FROM QUARTIERS WHERE fk_ville_quartier = :pCp";
+        $lstrQuery = "SELECT * FROM quartiers WHERE fk_ville_quartier = :pCp";
         $stmt = $bdd->prepare($lstrQuery);
         $stmt->bindParam(':pCp', $cp);
         $stmt->execute();
@@ -102,7 +106,7 @@ function GetQuartiers()
 
     if ($bdd) {
         //Connexion ok, préparation de la requête
-        $lstrQuery = "SELECT * FROM QUARTIERS";
+        $lstrQuery = "SELECT * FROM quartiers";
         $stmt = $bdd->prepare($lstrQuery);
         $stmt->execute();
         $lobjQuart = $stmt->fetchAll(PDO::FETCH_OBJ);;
@@ -396,7 +400,7 @@ function SearchCity($lstrSearch)
     $bdd = GetDataBase();
 
     if ($bdd) {
-        $lstrQuery = "Select * from VILLES WHERE cpVille LIKE :pSearch";
+        $lstrQuery = "Select * from villes WHERE cpVille LIKE :pSearch";
         $stmt = $bdd->prepare($lstrQuery);
         $stmt->bindParam(':pSearch', $lstrSearch);
         $stmt->execute();
@@ -553,4 +557,18 @@ function InsertPicture($path, $house, $user){
         $resultat = -4;
     }
     return $resultat;
+}
+
+
+//Utilisation procédure stockée pour afficher l'historique des logements pour l'utilisateur connecté
+function HistoriqueUser($id){
+    $bdd = GetDataBase();
+
+    if($bdd){
+        $stmt = $bdd->prepare("CALL selectHistoriqueUser($id)");
+        $stmt->bindValue(1, $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+    }
+    return $result;
 }
