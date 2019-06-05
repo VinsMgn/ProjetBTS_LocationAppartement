@@ -72,8 +72,7 @@ if ($lobjUser) {
                         <!--                </label>-->
                     </div>
                     <div class="input-field">
-                        <h5>Solde (0 si aucun)</h5>
-                        <input required name="solde" type="text" value="<?php echo($lobjUser->solde);?>">
+                        <input required name="solde" type="text" value="<?php echo($lobjUser->solde);?>" hidden="hidden">
                         <!--                <label for="solde" class=""> Solde (0 si aucun)-->
                         <!--                </label>-->
                     </div>
@@ -86,6 +85,6 @@ if ($lobjUser) {
             </div>
         </div>
 <!--        <button> <a href = "../controller/admin/listOfUsers.php" style="text-decoration: none; color: black" >Retour</a></button>-->
-        <button class="btn submit waves-effect waves-light"> <a href = "profil.view.php" style="text-decoration: none; color: white" >Retour</a></button>
+        <button class="btn submit waves-effect waves-light"> <a href = "../controller/profil.php" style="text-decoration: none; color: white" >Retour</a></button>
     </div>
 <?php }

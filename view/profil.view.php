@@ -17,42 +17,38 @@ include("../helper/navbar.php");
         </div>
     </div>
     <div class="row text-center">
-        <div class="col-md-12">
-            <ul id="listProfil">
-                <li>
-                    <h3>Nom : </h3>
-                    <span class="detailAppartement"><?php echo($lobjUser->nom); ?></span>
-                </li>
-                <li>
-                    <h3>Prénom : </h3>
-                    <span class="detailAppartement"><?php echo($lobjUser->prenom); ?></span>
-                </li>
-                <li>
-                    <h3>Ville : </h3>
-                    <span class="detailAppartement"><?php echo($lobjUser->adress); ?></span>
-                </li>
-                <li>
-                    <h3>Adresse mail : </h3>
-                    <span class="detailAppartement"><?php echo($lobjUser->mail); ?></span>
-                </li>
-                <li>
-                    <h3>Pays : </h3>
-                    <span class="detailAppartement"><?php echo($lobjUser->pays); ?></span>
-                </li>
-                <li>
-                    <h3>Solde : </h3>
-                    <span class="detailAppartement"><?php echo($lobjUser->solde . " jeton(s)"); ?></span>
-                </li>
-            </ul>
+        <div class="col-md-4">
+            <h4>Nom : </h4>
+            <span class="detailAppartement"><?php echo($lobjUser->nom); ?></span>
+        </div>
+        <div class="col-md-4">
+            <h4>Prénom : </h4>
+            <span class="detailAppartement"><?php echo($lobjUser->prenom); ?></span>
+        </div>
+        <div class="col-md-4">
+            <h4>Ville : </h4>
+            <span class="detailAppartement"><?php echo($lobjUser->adress); ?></span>
+        </div>
+        <div class="col-md-4">
+            <h4>Adresse mail : </h4>
+            <span class="detailAppartement"><?php echo($lobjUser->mail); ?></span>
+        </div>
+        <div class="col-md-4">
+            <h4>Pays : </h4>
+            <span class="detailAppartement"><?php echo($lobjUser->pays); ?></span>
+        </div>
+        <div class="col-md-4">
+            <h4>Solde : </h4>
+            <span class="detailAppartement"><?php echo($lobjUser->solde . " jeton(s)"); ?></span>
         </div>
 
     </div>
 
-<!--Voir le logement en cours-->
+    <!--Voir le logement en cours-->
     <div class="col-md-4 logementInfo">
         <h3><a href="../controller/listOfAppartsUser.php">Voir mon logement</h3>
     </div>
-<!--    Voir l'historique des logements s'il y en a un-->
+    <!--    Voir l'historique des logements s'il y en a un-->
     <div class="col-md-4 logementInfo">
         <h3><a href="../controller/historique.php">Voir mon historique</h3>
     </div>
@@ -72,7 +68,6 @@ include("../helper/navbar.php");
         <div class="col-md-4">
             <a href="../controller/updateUser.php" class="btn submit waves-effect waves-light">Modifier mes informations
                 personnelles
-                <i class="material-icons right">add_circle</i>
             </a>
         </div>
     </div>

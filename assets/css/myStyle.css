@@ -106,7 +106,7 @@ body{
     display: inline-block;
     background-color: white;
     position: relative;
-    margin: 0 10px 15px 10px;
+    margin: 0 10px 15px 20px;
     align-self: flex-start;
     box-sizing: border-box;
     text-align: center;
@@ -117,6 +117,11 @@ body{
 .detailAppartement{
     font-size: 1.5em;
     font-weight: lighter;
+}
+
+
+.leftItem{
+    margin-left: 8em;
 }
 
 #listProfil h3{

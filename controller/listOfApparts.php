@@ -8,9 +8,14 @@ AuthGuard($RQT_URL);
 //Si une recherche a été effectuée
 $lobjVilles = GetCities();
 if (isset($_POST) && count($_POST) > 0) {
-    //On recherche un appartement selon une ville
-    $search = SearchCity($_POST['city']);
-    $lobjApparts = GetAppartsByCity($search->cpVille);
+    if($_POST['city'] == '75001'){
+        //On affiche tous les appartements
+        $lobjApparts = GetApparts();
+    }else{
+        //On recherche un appartement selon une ville
+        $search = SearchCity($_POST['city']);
+        $lobjApparts = GetAppartsByCity($search->cpVille);
+    }
 
 } else {
     //On affiche tous les appartements
@@ -18,9 +23,9 @@ if (isset($_POST) && count($_POST) > 0) {
 }
 
 //Si pas de recherche, on récupère les images de tous les appartements
-$lobjApparts = GetApparts();
-for($i = 0;$i < sizeof($lobjApparts);$i++){
-    $lobjPicture = GetPictureFromHouse($lobjApparts[$i]->id_appartement);
-
-}
+//$lobjApparts = GetApparts();
+//for($i = 0;$i < sizeof($lobjApparts);$i++){
+//    $lobjPicture = GetPictureFromHouse($lobjApparts[$i]->id_appartement);
+//
+//}
 require_once("../view/listOfApparts.view.php");

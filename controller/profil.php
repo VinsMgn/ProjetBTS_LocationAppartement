@@ -19,6 +19,7 @@ if ($QRY_STR == 'error=2') {
 $lobjUser = GetUser($_SESSION['id']);
 
 
+
 require_once("../view/profil.view.php");
 
 ?>

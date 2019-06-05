@@ -12,7 +12,7 @@ $lobjUser = GetUser($lintIdUser);
 //Modification de l'utilisateur
 if (isset($_POST) && count($_POST) > 0) {
     //Si locataire = 0 sinon propriétaire = 1
-    if($_POST['type'] == "Locataire"){
+    if(strtolower($_POST['type']) == "locataire"){
         $_POST['type'] = 0;
     }else{
         $_POST['type'] = 1;

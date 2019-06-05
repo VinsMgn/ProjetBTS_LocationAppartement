@@ -12,6 +12,12 @@ $lobjUser = GetUser($lintIdUser);
 //Modification de l'utilisateur
 if (isset($_POST) && count($_POST) > 0) {
 
+    if(strtolower($_POST['type']) == "locataire"){
+        $_POST['type'] = 0;
+    }else{
+        $_POST['type'] = 1;
+    }
+
     $lboolOk = UpdateUser($_POST['name'], $_POST['firstname'], $_POST['adress'], $_POST['phone'], $_POST['mail'], $_POST['country'], $_POST['solde'], $_POST['password'], $_POST['type'],$_POST['identifiant']);
 
     if($lboolOk = true){

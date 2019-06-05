@@ -19,7 +19,7 @@ include("../helper/navbar.php");
         <div class="row">
             <div class="col-md-12 center-block">
                 <form method="POST" action="../controller/listOfApparts.php">
-                    <div class="col-md-5">
+                    <div class="col-md-2">
                         <label id="searchCity">Ville :</label>
                         <select name="city" class="cityForm">
                             <?php foreach ($lobjVilles as $ville) { ?>
@@ -41,7 +41,7 @@ include("../helper/navbar.php");
 <!-- Affichage des appartements-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-10" >
+            <div class="col-md-12 " style="padding-left: 10em;">
                 <?php foreach ($lobjApparts as $appart) {
                     $lobjPicture = GetPictureFromHouse($appart->id_appartement);
                     ?>
